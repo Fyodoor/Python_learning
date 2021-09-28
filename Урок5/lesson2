@@ -1,0 +1,8 @@
+a=float(input())
+if a>0:
+    print("Положительное")
+else:
+    if a<0:
+        print("Отрицательное")
+    else:
+        print("Ноль")
