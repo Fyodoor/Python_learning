@@ -1,0 +1,26 @@
+k=int(input())
+if k>=0 and k<=36:
+	if k==0:
+		print( "зелёный")
+	if k>=1 and k<=10:
+		if k%2==0:
+			print("чёрный")
+		else:
+			print("красный")
+	if k>=11 and k<=18:
+		if k%2==0:
+			print("красный")
+		else:
+			print("черный")
+	if k>=19 and k<=28:
+		if k%2==0:
+			print("чёрный")
+		else:
+			print("красный")
+	if k>=29 and k<=36:
+		if k%2==0:
+			print("красный")
+		else:
+			print("чёрный")
+else:
+	print("Ошибка")
