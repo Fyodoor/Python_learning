@@ -1,0 +1,10 @@
+art1 = "Недавно проходил обучение в Academy."
+art2 = "Недавно проходил обучение"
+art3 = "Недавно проходил обучение в Academy. Все очень круто"
+mlen = max(len(art1), len(art2), len(art3))
+if mlen == len(art1):
+    print(art1)
+if mlen == len(art2):
+    print(art2)
+if mlen == len(art3):
+    print(art3)
