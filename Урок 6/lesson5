@@ -1,0 +1,5 @@
+email = input("Пиши почту тут: ")
+if "@" in email and "." in email:
+	print("Корректный")
+else:
+	print("Некорректный")
