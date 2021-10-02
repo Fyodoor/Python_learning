@@ -1,0 +1,13 @@
+natural=int(input())
+maximum=natural
+minimum=natural
+
+for i in range(natural):
+		number=int(input())
+		if maximum < number:
+			maximum = number
+		if minimum > number:
+			minimum = number
+		
+print("Минимум равен", minimum)
+print("Максимум равен", maximum)
