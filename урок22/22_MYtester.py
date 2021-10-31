@@ -49,7 +49,7 @@ class QuestionsStorage:
             self.safe_questions(questions)
             
         data = file_provider.get(self.file_name)
-        data = jsonpickle.decode(data)
+        questions = jsonpickle.decode(data)
         return questions
     
     def safe_questions(self, questions):
