@@ -40,7 +40,14 @@ class Ball:
         if self.center_y <= self.radius or self.center_y >= height - self.radius:
             return True
         return False
-                        
+          
+    def outzone(self):
+        if self.center_x >= self.radius or self.center_x <= width - self.radius:
+            return True
+        if self.center_y >= self.radius or self.center_y <= height - self.radius:
+            return True
+        return False        
+    
 class RandomPointBall(Ball):
     def __init__(self, display):
         super().__init__(display)
