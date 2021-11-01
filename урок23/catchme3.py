@@ -68,10 +68,7 @@ class PointBall(Ball):
 
         self.center_x = x
         self.center_y = y
-        
-    def set_text(self,display, str):
-        green = (0, 255, 0)
-        blue = (0, 0, 128)        
+              
 
 class RandomPointMovableBall(RandomPointBall):
     def __init__(self, display):
@@ -82,10 +79,23 @@ class RandomPointMovableBall(RandomPointBall):
             self.vy = random.randint(-3, 3)
             if not self.vx == 0 or self.vy == 0:
                 break      
-def text():
-    display.blit(display_text, pos)
-    pygame.display.flip()
-    count = 0
+
+class Scoreboard:
+    
+    def __init__(self, font, center_x, center_y):
+        self.font = font
+        self.xy = center_x
+        self.yx = center_y
+    
+    def text(self,display, str):
+        red = (255, 0, 0)
+        yellow = (239, 228, 176)
+    
+        text = font.render(str, True, red, yellow)
+        textRect = text.get_rect()
+        textRect.center = (self.xy, self.yx)        
+        display.blit(text, textRect)               
+            
     
 pygame.init()
 pygame.display.set_caption("Catchme")
@@ -98,8 +108,7 @@ RED = (255, 0, 0)
 
 font = pygame.font.SysFont("arial", 24)
 display_text = font.render("Шаров на экране: ", 1, RED)
-pos = display_text.get_rect(center=(width//2, height//10))
-
+score = Scoreboard(font, width//2, 25)
 
 balls= []
 for i in range(10):
@@ -123,14 +132,14 @@ while True:
             for ball in balls:
                 if ball.in_zone(width, height):
                     continue
-                ball.inz = True
+                ball.in_zone = True
                 ball.stop()
 
     count = 0
     for ball in balls:
-        if ball.inz == True:
+        if ball.in_zone == True:
             count += 1
-    text()    
+    score.text(display, f'поймали = {count}')    
     
     for ball in balls:
         ball.move()
