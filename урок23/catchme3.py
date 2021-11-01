@@ -9,6 +9,7 @@ class Ball:
         self.center_x = 100
         self.center_y = 100
         self.radius = 30
+        self.inz = False
         
         self.vx = 2
         self.vy = 2
@@ -84,6 +85,7 @@ class RandomPointMovableBall(RandomPointBall):
 def text():
     display.blit(display_text, pos)
     pygame.display.flip()
+    count = 0
     
 pygame.init()
 pygame.display.set_caption("Catchme")
@@ -108,7 +110,7 @@ for i in range(10):
 pygame.display.flip()
 
 
-time.sleep(3)
+time.sleep(1)
 
 clock = pygame.time.Clock()
 while True:
@@ -119,10 +121,19 @@ while True:
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             for ball in balls:
+                if ball.in_zone(width, height):
+                    continue
+                ball.inz = True
                 ball.stop()
+
+    count = 0
+    for ball in balls:
+        if ball.inz == True:
+            count += 1
+    text()    
     
     for ball in balls:
         ball.move()
-    text()
+        
     pygame.display.flip()
     clock.tick(30)
