@@ -81,7 +81,10 @@ class RandomPointMovableBall(RandomPointBall):
             self.vy = random.randint(-3, 3)
             if not self.vx == 0 or self.vy == 0:
                 break      
-        
+def text():
+    display.blit(display_text, pos)
+    pygame.display.flip()
+    
 pygame.init()
 pygame.display.set_caption("Catchme")
 width = 700
@@ -94,7 +97,7 @@ RED = (255, 0, 0)
 font = pygame.font.SysFont("arial", 24)
 display_text = font.render("Шаров на экране: ", 1, RED)
 pos = display_text.get_rect(center=(width//2, height//10))
-display.blit(display_text, pos)
+
 
 balls= []
 for i in range(10):
@@ -120,6 +123,6 @@ while True:
     
     for ball in balls:
         ball.move()
-    
+    text()
     pygame.display.flip()
     clock.tick(30)
