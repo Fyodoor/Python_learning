@@ -89,7 +89,6 @@ def print_students():
 
 def add_new_student():
     
-    print("Введите Имя, Фамилию, Возраст, Номер класса")
     first_name_student = input("введите имя ученика: ")
     last_name_student = input("введите фамилию ученика: ")
     age_student = input("введите возраст ученика: ")   
@@ -112,15 +111,14 @@ def remove_student():
     while True:
         print("Выберите номер ученика которого надо удалить.")
         
-        print_students(students)
-        user_answer = get_user_answer()
-        
+        print_students()
+        user_answer = get_user_answer()        
         if user_answer < 1 or user_answer > len(students):
             continue
             
         studentsStorage.remove(user_answer - 1)
         
-        print(f"{user_answer} успешно удален")
+        print(f"Ученик под номером {user_answer} успешно удален")
         break
 
 
