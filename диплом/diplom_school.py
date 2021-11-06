@@ -32,6 +32,7 @@ class School:
         self.number_school = number_school
         self.adress_school = adress_school
         
+
         
 
 
@@ -83,8 +84,7 @@ def print_students():
     
     students = studentsStorage.get_all()
     for i in range(len(students)):
-        for student in students:
-            print(f'{i + 1}.{student.first_name_student:15}{student.last_name_student:15}{student.age_student:15}{student.number_class:15}')
+        print(f'{i + 1}.{students[i].first_name_student:15}{students[i].last_name_student:15}{students[i].age_student:15}{students[i].number_class:15}')
 
 
 def add_new_student():
