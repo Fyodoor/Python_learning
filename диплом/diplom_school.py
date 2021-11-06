@@ -88,15 +88,20 @@ def print_students():
 
 
 def add_new_student():
-    
-    first_name_student = input("введите имя ученика: ")
-    last_name_student = input("введите фамилию ученика: ")
-    age_student = input("введите возраст ученика: ")   
-    number_class = input("введите класс ученика: ")
-    new_student = Students(first_name_student, last_name_student, age_student,
-                 number_class)
-    studentsStorage.add(new_student)
-
+    while True:
+        first_name_student = input("введите имя ученика: ")
+        last_name_student = input("введите фамилию ученика: ")
+        age_student = input("введите возраст ученика: ")   
+        number_class = input("введите класс ученика: ")
+        new_student = Students(first_name_student, last_name_student, age_student,
+                     number_class)
+        studentsStorage.add(new_student)
+        
+        print("Если хотите добавить ещё ученика, отправьте 1")
+        user_answer = get_user_answer()
+        if not user_answer == 1:
+            break
+        
 def get_user_answer():
     user_input = input()
     
@@ -119,7 +124,12 @@ def remove_student():
         studentsStorage.remove(user_answer - 1)
         
         print(f"Ученик под номером {user_answer} успешно удален")
-        break
+        
+        print("Если хотите удалить ещё ученика, отправьте 1")
+        user_answer = get_user_answer()
+        if not user_answer == 1:
+            break        
+        
 
 
     
