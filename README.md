@@ -1,2 +1,2 @@
-# GloAcademy_Python
+# Python_learning
 Обучение
